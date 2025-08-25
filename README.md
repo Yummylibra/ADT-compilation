@@ -11,24 +11,24 @@ The goal is to provide clean, educational examples of data structure and algorit
 
 ### 1. Linked List (Movie Review Database)
 - **Files**:  
-  - `A1 linked_list.c`  
-  - `A1_driver.c` (automated tester)  
-  - `A1_interactive.c` (interactive tester)  
+  - `linked_list.c`  
+  - `driver.c` (automated tester)  
+  - `interactive.c` (interactive tester)  
 - **Features**:  
   - Insert, search, update, delete movie reviews  
   - Maintain movie metadata (studio, year, BO, score)  
   - Query by studio or by score  
   - Insert cast members and calculate actor statistics  
   - Find the most profitable star  
-- **Doc**: `CSCA48_Assignment_1.pdf`
+
 
 ---
 
 ### 2. Binary Search Tree (BST Sequencer)
 - **Files**:  
   - `BSTs.c`  
-  - `A2_test_driver.c`  
-  - `A2_interactive_driver.c`  
+  - `test_driver.c`  
+  - `interactive_driver.c`  
   - Example songs: `bmc.txt`, `dusty.txt`, `minuet.txt`, `BST_driver_input.txt`  
   - `note_frequencies.txt`  
 - **Features**:  
@@ -36,7 +36,7 @@ The goal is to provide clean, educational examples of data structure and algorit
   - Insert, delete, search by unique key  
   - Traverse tree to create playlists  
   - Reverse songs, harmonize songs  
-- **Doc**: `A2_handout.pdf`
+
 
 ---
 
@@ -48,7 +48,10 @@ The goal is to provide clean, educational examples of data structure and algorit
 - **Features**:  
   - Self-balancing BST using rotations (LL, RR, LR, RL)  
   - Insert, delete, search  
-  - Maintain tree height for O(log n) operations  
+  - Maintain tree height for O(log n) operations
+  - Present tree content in pre/in/post-order
+  - Support ranking of a node in AVL tree as well as find the corresponding node given the rank
+  - Demo of AVL Tree split and Union
 
 ---
 
@@ -70,12 +73,12 @@ The goal is to provide clean, educational examples of data structure and algorit
 - **Files**:  
   - `ingredient_graph.c`  
   - Data: `AdjMat_small.dat`, `AdjMat_full.dat`, `Ingredient_names_small.txt`, `Ingredient_names_full.txt`  
-  - Drivers: `A3_driver.c`, `A3testdriver.c`  
+  - Drivers: `driver.c`, `testdriver.c`  
 - **Features**:  
   - Load graph from adjacency matrix  
   - Related ingredients query (direct / k-distance / with restrictions)  
   - Substitute ingredients in recipes  
-- **Doc**: `A3_handout.pdf`
+
 
 ---
 
@@ -136,7 +139,7 @@ gcc -o WBT_tester WBT.c WBT_tester.c
 ./WBT_tester
 
 # Compile BST interactive driver
-gcc -o BST_driver BSTs.c A2_interactive_driver.c
+gcc -o BST_driver BSTs.c interactive_driver.c
 ./BST_driver
 
 # Compile Graph tester
