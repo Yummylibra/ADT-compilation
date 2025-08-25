@@ -1,14 +1,7 @@
-/*
- * Our graph implementation.
- *
- * Author: A. Tafliovich.
- */
+
 
 #include "graph.h"
 
-/*********************************************************************
- ** Helper function provided in the starter code
- *********************************************************************/
 
 void printEdge(Edge* edge) {
   if (edge == NULL)
@@ -50,9 +43,7 @@ void printGraph(Graph* graph) {
   printf("\n");
 }
 
-/*********************************************************************
- ** Required functions
- *********************************************************************/
+
 
 
 /* Returns a newly created Edge from vertex with ID 'fromVertex' to vertex

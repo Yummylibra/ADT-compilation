@@ -1,20 +1,4 @@
-/*
- * CSC A48 - Assignment 2, BSTs
- * 
- * Interactive driver
- * 
- * This code is provided only to help you test and 
- * debug your code. You should use it while implementing
- * your solution to try different inputs, see your code
- * is doing the right thing, and find errors.
- * 
- * However, it does not constitute a replacement for
- * YOUR OWN TESTING while writing your solution. You're
- * expected to thoroughly test each function and each
- * part of your code.
- * 
- * Updated Feb. 2022, (c) F. Estrada
- */
+//gcc -Wall interactive_driver.c -lm
 
 #include<string.h>
 #include"BSTs.c"

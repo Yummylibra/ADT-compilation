@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// 函数原型声明
+
 void quicksort(int A[], int p, int r);
 int partition(int A[], int p, int r);
 void exchange(int* a, int* b);
@@ -22,7 +22,6 @@ int main() {
     return 0;
 }
 
-// 快速排序函数
 void quicksort(int A[], int p, int r) {
     if (p < r) {
         int q = partition(A, p, r);
@@ -33,7 +32,7 @@ void quicksort(int A[], int p, int r) {
     }
 }
 
-// 分区函数
+
 int partition(int A[], int p, int r) {
     int x = A[r]; //pivot
     int count = p - 1;

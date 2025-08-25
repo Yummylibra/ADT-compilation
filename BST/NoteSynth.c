@@ -1,27 +1,4 @@
-/*
-  This code contains an implementation of a simple note synthesizer.
-   
-  It was originally created for CSC B63, and has now been updated
-  for use in A48. 
-    
-  *** YOU DO NOT NEED TO READ OR UNDERSTAND THE CODE HERE ***
-  
-  It is provided only to complement the assignment you're working
-  on.
-  
-  However - if you are curious about how to generate sound and
-  how to write a sound file, feel free to study the code below,
-  ONLY AFTER YOU:
-    
-       - Have completed and tested your assignment solution
-       - Have made sure you have time for this!
-       
-  If you're curious about sound, sound generation, or any of the
-  code in here, feel free to drop by and I can help explain
-  what's going on during the office hour.
-  
-  (c) F. Estrada, Feb. 2019       
-*/
+
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -133,15 +110,13 @@ note *new_note(double freq, int bar, double index)
   return(NULL);
  }
 
- //////////////////////////////////////////////////////////////////////////////////////////////
- // Here we initialize the note's waveform. 
- //
- // You could potentially change the note sound by playing around with different initialization
- // techniques. For example, what happens if you use a square wave as an initial waveform?
- // a ramp? a sine wave? Note that all waveform values must be in [-1, 1]
- // 
+
+ // Initialize the note's waveform. 
+
+ // All waveform values must be in [-1, 1]
+
  // For the Karplus-Strong plucked string, the standard initialization is white noise.
- //////////////////////////////////////////////////////////////////////////////////////////////
+
  for (int i=0;i<n->wave_length;i++)
  {
   *(n->waveform + i)=(1.0*(double)rand()/(double)RAND_MAX)-.5;	// A random number in [-.5, .5]
@@ -446,10 +421,7 @@ void play_notes(int bar_length)
        q=q->next;
       } 
       
-      //////////////////////////////////////////////////////////////////////////////////
-      //   Note that I use position in the scale as a way to separate notes
-      ///  across the L and R channels. What else could we think of doing here?
-      //////////////////////////////////////////////////////////////////////////////////
+
 
       // Clip to [-1, 1] transform to a 2-byte signed integer for each channel, and write
       // to file

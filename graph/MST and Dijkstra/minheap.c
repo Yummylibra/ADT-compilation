@@ -1,17 +1,9 @@
-/*
- * Our min-heap implementation.
- *
- * Author (starter code): A. Tafliovich.
- */
+
 
 #include "minheap.h"
 
 #define ROOT_INDEX 1
 #define NOTHING -1
-
-/*************************************************************************
- ** Suggested helper functions -- part of starter code
- *************************************************************************/
 
 /* Swaps contents of heap->arr[index1] and heap->arr[index2] if both 'index1'
  * and 'index2' are valid indices for minheap 'heap'. Has no effect
@@ -150,9 +142,7 @@ int indexOf(MinHeap *heap, int id){
        return heap->indexMap[id];
 }
 
-/*********************************************************************
- * Required functions
- ********************************************************************/
+
 
 /* Returns the node with minimum priority in minheap 'heap'.
  * Precondition: heap is non-empty
@@ -268,9 +258,8 @@ void deleteHeap(MinHeap *heap){
               heap = NULL;
        }
 }
-/*********************************************************************
- ** Helper function provided in the starter code
- *********************************************************************/
+
+
 void printHeap(MinHeap *heap){
        printf("MinHeap with size: %d\n\tcapacity: %d\n\n", heap->size,
               heap->capacity);

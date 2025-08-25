@@ -163,9 +163,7 @@ int indexOf(MinHeap* heap, int id){
        return heap->indexMap[id];
 }
 
-/*********************************************************************
- * Required functions
- ********************************************************************/
+
 
 /* Returns the node with minimum priority in minheap 'heap'.
  * Precondition: heap is non-empty
@@ -272,9 +270,8 @@ void deleteHeap(MinHeap* heap){
               heap = NULL;
        }
 }
-/*********************************************************************
- ** Helper function provided in the starter code
- *********************************************************************/
+
+
 void printHeap(MinHeap* heap) {
   printf("MinHeap with size: %d\n\tcapacity: %d\n\n", heap->size,
          heap->capacity);

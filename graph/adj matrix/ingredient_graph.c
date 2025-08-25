@@ -1,60 +1,3 @@
-/* 
- * CSC A48 - Assignment 3 - Ingredient networks
- * 
- * In this assignment, you will practice and strengthen your
- * understanding of graph and recursion. The application 
- * you're working on is a simple network for studying
- * how food ingredients interact. 
- * 
- * This kind of network is the basic model that very
- * powerful systems such as IMB's Watson use as the 
- * basis for creating new combinations of ingredients
- * that are likely to go well together, but haven't been
- * used in previously printed recipes.
- * 
- * Your work here has several components:
- * 
- * - Understanding how the graph is represented by an
- *   adjacency matrix.
- * - Using the adjacency matrix to figure out, given
- *   an input ingredient, what other ingredients it is
- *   related to directly
- * - Using the adjacency matrix to determine, given
- *   a specific ingredient, which others are related
- *   to it directly *and* indirectly by a distance 
- *   of k hops along the graph (k>=1).
- * - Get lits of ingredients that are related, but
- *   not including ingredients from a separate
- *   list of ingredients
- * - *crunchy* Using the adjacency matrix that, given
- *   a recipe (which a list of ingredients) and 
- *   a target ingredient (part of the recipe) to
- *   replace, finds the best replacement from the
- *   remaining ingredients in the graph and updates
- *   the recipe.
- * 
- * This file contains the functions that set up
- * the adjacency matrix and the list of ingredients
- * for you. We provide you with 2 graphs, a 
- * small one with 10 ingredients (and an adjacency
- * matrix of size 10x10), and a full one with 
- * 400 ingredients (adjacency matrix is 400x400).
- * 
- * Use the 10x10 while implementing and testing your
- * solution, and only move to the full-size one once
- * you're confident your code works well.
- * 
- * Select which matrix to use by uncommenting the
- * respective #define statement below.
- * 
- * Sections where you have to implement code are
- * clearly marked
- * ********
- * TO DO:
- * ********
- * 
- * (c) F. Estrada, March 2022
- */
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -66,18 +9,10 @@
 //#define MAT_SIZE 400	// Use full-size graph
 #endif
 
-// The following are GLOBAL variables you can use
-// anywhere in your code. They include the 
-// adjacency matrix, as well as an array of strings
-// to store the ingredient names.
+
 double AdjMat[MAT_SIZE][MAT_SIZE];
 char ingredients[MAT_SIZE][MAX_STR_LEN];
 
-// Bare-bones implementation of a linked-list of
-// integers, you can use it to return the ingredient
-// lists requested from functions you have to
-// implement. DO NOT CHANGE THE IMPLEMENTATION
-// OF THE LINKED LISTS.
 
 typedef struct intNode_struct
 {
@@ -168,9 +103,7 @@ void load_ingredients(void)
   fclose(f);
 }
 
-/***************************************************************
- * The part of the assignment you need to implement starts below
- ***************************************************************/
+
 
 void print_ingredients(intNode *h)
 {
@@ -179,11 +112,7 @@ void print_ingredients(intNode *h)
      * to the ingredient indexes stored in the linked list
      * whose head is 'h'.
      */
-    
-    /*****
-     * TO Do:
-     * Complete this function
-     *****/
+
     intNode *tmp;
     tmp = h;
     while(tmp != NULL){
@@ -204,11 +133,7 @@ int ingredient_index(char source_ingredient[MAX_STR_LEN])
      * If the 'source_ingredient' is *not* in the ingredients
      * array, the function returns -1
      */
-    
-    /******
-     * TO Do:
-     * Implement this function
-     *****/
+
     int i = 0;
     while(i < MAT_SIZE){
       if(strcmp(ingredients[i], source_ingredient) == 0){
@@ -238,14 +163,8 @@ void related_ingredients(char source_ingredient[MAX_STR_LEN])
      * 			actual value indicates how many times these two
      * 			ingredients appeared together in a recipe
      * 
-     * Make sure you understand what this is telling you about the
-     * ingredients in your graph. You'll need it later
      */
-    
-    /**********
-     * TO DO:
-     * Implement this function
-     * ********/
+
     int index;
     index = ingredient_index(source_ingredient);
     for(int i = 0; i < MAT_SIZE; i++){
@@ -259,7 +178,7 @@ void related_ingredients(char source_ingredient[MAX_STR_LEN])
 intNode *related_k_dist(intNode *h, char source_ingredient[MAX_STR_LEN], int k, int dist)
 {
     /*
-     * This function determines the ingredients related to the
+     * This function recursively determines the ingredients related to the
      * specified source ingredient by a distance of at most k.
      * k >= 1 
      * 
@@ -274,23 +193,14 @@ intNode *related_k_dist(intNode *h, char source_ingredient[MAX_STR_LEN], int k, 
      * neighbours' neighbours, and its neighbours' neighbours'
      * neighbours. And so on.
      * 
-     * *****  This function MUST use recursion  ******
      * 
      * Ingredients are returned as *indexes*, so, for instance,
      * if we find a related ingredient 'chicken' is stored at
      * index 7 in ingredients[][], then we store 7 in the
      * linked list of related ingredients.
      * 
-     * The returned list MUST CONTAIN NO DUPLICATES.
-     * 
-     * And be smart about it, or you'll end up in an infinite
-     * recursion! So think carefully about the base case(s)
-     * and about what the recursive case must do.
-     *
-     * Example call:
-     * 
-     * Our test code may call your function in this way:
-     * 
+     * The returned list contains no duplicates.
+     * example:
      * intNode *head=NULL;
      * head=related_k_dist(head,"rice",2,0);
      * 
@@ -298,15 +208,8 @@ intNode *related_k_dist(intNode *h, char source_ingredient[MAX_STR_LEN], int k, 
      * all the ingredients related to 'rice' up to a distance of
      * 2 away.
      * 
-     * It's up to *you* to figure out what the 'dist' parameter
-     * is for!
-     * 
      */
-    
-    /*******
-     * TO DO:
-     * Complete this function
-     *******/
+
     if(k < 1){
       return NULL;
     }
@@ -352,15 +255,13 @@ intNode *related_with_restrictions(char source_ingredient[MAX_STR_LEN], char avo
      * all ingredients related to source_ingredient[] with a distance
      * of at most k_source.
      * 
-     * BUT, the list *must not contain* any ingredients related to avoid[]
+     * the list doesn't contain any ingredients related to avoid[]
      * (including avoid[] itself) by a distance of up to k_avoid.
      * 
      * Example:
      * 
      * intNode *head=NULL;
      * head=related_with_restrictions("rice", "nuts", 2, 0);
-     * (yes, we know the function doesn't take the head of a linked list as a parameter,
-     *  that's not a mistake)
      * 
      * Should return a pointer to the head of a list of ingredients related to 
      * 'rice' by a distance of up to 2, NOT INCLUDING 'nuts'.
@@ -374,10 +275,7 @@ intNode *related_with_restrictions(char source_ingredient[MAX_STR_LEN], char avo
      * 
      */
     
-    /****
-     * TO DO:
-     * Implement this function
-     *****/
+
 
     intNode *avoidlist = NULL;
     intNode *unoperated = NULL;
@@ -409,34 +307,15 @@ intNode *related_with_restrictions(char source_ingredient[MAX_STR_LEN], char avo
 void substitute_ingredient(char recipe[10][MAX_STR_LEN], char to_change[MAX_STR_LEN])
 {
   /*
-   * *CRUNCHY!*
-   * 
    * This function takes a recipe (which is an array of ingredients with up to 10
    * ingredients), and replaces the one in 'to_change' by *the most compatible
    * ingredient from the graph*
    * 
    * By most compatible, we mean the ingredient that appears most often with 
    * the remaining ingredients in the recipe.
-   * 
-   * The definition above may seem fuzzy, but it's not if you consider that the
-   * weights in the adjacency matrix are meaningful.
-   * 
-   * As you see, nothing is returned - the result of this function is that the
-   * ingredient 'to_change' is replaced in the recipe by the most compatible
-   * ingredient given the graph that is *not already in the recipe*.
-   * 
-   * Assume that the input recipe is such that *all ingredients are in the
-   * array of ingredients* (i.e. you don't have to worry about ingredients
-   * that don't exists).
-   * 
-   * However, the recipe *may have less than 10 ingredients*, in which case
-   * unused ingredients will be set to empty strings ("")
+
    */
-  
-   /*******
-    * TO DO:
-    * Complete this function!
-    ******/
+
   int tch;
   for(int i = 0; i < 10; i ++){//locate the to_change's index in the recipe
     if(strcmp(recipe[i], to_change) == 0){

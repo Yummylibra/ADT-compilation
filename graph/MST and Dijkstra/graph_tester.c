@@ -1,25 +1,3 @@
-/*
- *  Some (very) light testing of our Graph implementation.
- *
- *
- *  Author: A. Tafliovich.
- *
- *  ---------------------------------------------------------------------------
- *   Compile:
- *   gcc -Wall -Werror graph.c minheap.c graph_algos.c graph_tester.c -o tester
- *
- *   Run:
- *   ./tester sample_input.txt
- *
- *   SEE FILE expected_output.txt FOR EXPECTED OUTPUT
- *
- *   Don't forget:
- *   valgrind --show-leak-kinds=all --leak-check=full ./tester sample_input.txt
- *   clang-format -style=Google --dry-run myfile.c
- *   clang-tidy --config-file=if-you-want-custom.txt myfile.c
- *  ---------------------------------------------------------------------------
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

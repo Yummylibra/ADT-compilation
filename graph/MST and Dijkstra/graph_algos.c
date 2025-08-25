@@ -23,9 +23,7 @@ typedef struct records {
   int numTreeEdges;   // current number of edges in mst
 } Records;
 
-/*************************************************************************
- ** Suggested helper functions -- part of starter code
- *************************************************************************/
+
 
 /* Creates, populates, and returns a MinHeap to be used by Prim's and
  * Dijkstra's algorithms on Graph 'graph' starting from vertex with ID
@@ -148,9 +146,7 @@ EdgeList* makePath(Edge* distTree, int vertex, int startVertex){
 
 
 
-/*************************************************************************
- ** Required functions
- *************************************************************************/
+
 /* Runs Prim's algorithm on Graph 'graph' starting from vertex with ID
  * 'startVertex', and return the resulting MST: an array of Edges.
  * Returns NULL is 'startVertex' is not valid in 'graph'.
@@ -289,9 +285,7 @@ EdgeList** getShortestPaths(Edge* distTree, int numVertices, int startVertex){
   return shortestPaths;
 }
 
-/*************************************************************************
- ** Provided helper functions -- part of starter code to help you debug!
- *************************************************************************/
+
 void printRecords(Records* records) {
   if (records == NULL) return;
 

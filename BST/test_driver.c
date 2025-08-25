@@ -1,37 +1,4 @@
-/*
- * CSC A48 - Assignment 2 - BSTs test driver
- * 
- * This code is provided to help you test and debug your
- * solution for assignment 2.
- * 
- * The tests below should be commented and un-commented as
- * needed, while you're implementing different parts of 
- * your assignment (just like A1 before).
- * 
- * As you know by now:
- * 
- * - This is just a SUBSET of the tests we will run on
- *   your solution. You're responsible for coming up with
- *   your own test cases and making sure your code works
- *   for any input we can throw at it.
- * - Passing all of the tests here does not mean your code
- *   is bug free, it just means it's solid and you can
- *   expect to get a solid mark in the assignment
- * - You should read the tests carefully and understand what
- *   they are testing for, and think about why that is
- *   important and what additional tests you should be doing.
- * - FOR SOME OF THE TESTS YOU HAVE TO CHECK THE OUTPUT
- *   AND MAKE SURE IT'S CORRECT (e.g. tree traversals
- *   can not be auto-checked using only your code, our
- *   auto-marker will test those by comparing your output
- *   with the solution we have). So make sure you CHECK
- *   CAREFULLY for those tests that your code does what
- *   it should
- *      (This may also be a way for us to make sure
- *       you understand the material well ;) )
- * 
- * Updated Feb. 2022 (c) F. Estrada 
- */
+//gcc -Wall test_driver.c -lm 
 
 #include "BSTs.c"
 
@@ -43,11 +10,6 @@ int main()
     int bar,pass;
     double freq,index;
     
-    // COMMENT AND UN-COMMENT THE TESTS BELOW AS NEEDED!
-    
-    // WHILE YOU'RE RUNNING THE TESTS BELOW - you should do ON PAPER the same
-    // operations we're asking your BST to perform, so you know what SHOULD
-    // be happening, and can find problems when they occur.
     
     // Test #1 - Creating and initializing a new node for the BST
     bar=2;
@@ -168,12 +130,7 @@ int main()
     else printf("Passed test #6\n");
     
     // Test #7 - In-Order Traversal
-    // THIS TEST NEEDS TO BE CHECKED BY YOU, so make sure you have a diagram ON PAPER
-    // of what the tree should contain up to this point, given all the operations
-    // above. 
-    // You then have to check that the functions print out the right information
-    // that means: The nodes in the tree in the correct order given how the traversal
-    // works.
+
     printf("\n*** Checking in-Order traversal\n");
     BST_inOrder(root,0);
     
@@ -185,17 +142,7 @@ int main()
     printf("\n*** Checking post-Order traversal\n");
     BST_postOrder(root,0);
     
-    // The tests above check the basic functionality of your BST. The crunchy functions
-    // (shift frequency, make playlist, and harmonize) are better tested from the
-    // interactive test loop (use any of the pre-defined test inputs). 
-    // The file called 'BST_driver_input.txt' will load a sequence of notes that
-    // go from low-pitch to high-pitch when turned into a list and played back, try
-    // it out. When printed in order, you should see one note per bar, with increasing
-    // frequencies.
-    
-    // Be sure to test out the functionality of your crunchy functions thoroughly
-    // before submitting!
-    
+
     return 0;
 }
   

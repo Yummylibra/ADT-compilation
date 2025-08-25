@@ -1,33 +1,4 @@
-/*
- *  CSC A48 - Winter 2022 - Assignment 1 interactive test tool
- *
- *  (c) 2022 Francisco Estrada
- *  - No part of this code may be reproduced without written authorization
- *
- * This file will test different components of your solution for assignment 1.
- * The actual solution you must implement will be in MDB-c.c.
- *
- * There is no code for you to implement here!
- *
- * Let us say that again:
- *
- * There is NO code for you to implement here.
- *
- * This file contains a little interface intended to help you test your
- * solution for part 1 manually, by entering movie review information and
- * carrying out operations from the terminal.
- *
- * Using this interface should be part of your process for making sure your
- * assignment solution works well!
- *
- * Once you have a complete solution, it should pass the entire set of
- * tests below.
- */
-
-#include "MDB-c.c"  // <--- This will import your code so we can
-                    //	use your solution to create a linked
-                    //	list of movie reviews for testing!
-
+#include "MDB-c.c" 
 /**
  * Reads a movie's name, title, and year from the terminal.
  * Required for inserting new reviews, search, updating, and deletion.
